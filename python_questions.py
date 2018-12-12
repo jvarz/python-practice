@@ -22,7 +22,7 @@ Using python language specific syntax, determine if a given element
 is contained in the list, A.
 
 '''
-
+#TODO: make sure to not use global imports bc they are very dangerous and pollute your namespace
 from array import *
 
 def find_element_nopy(sorted_list, element):
