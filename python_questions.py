@@ -7,7 +7,39 @@ is contained in the list, A.
 '''
 
 def find_element_py(sorted_list,element):
-    pass
+    if element in sorted_list:
+    	print('Element found.')
+    else:
+    	print('Element not found')
+
+find = int(input('Enter the element you are looking for: '))
+find_element_py([10,23,36,47,59,64,71],find)
+
+'''
+A is a sorted list of n different elements in ascending order.
+Consider A = [10,23,36,37,47,59,64,71] for example.
+Using python language specific syntax, determine if a given element
+is contained in the list, A.
+
+'''
+
+from array import *
+
+def find_element_nopy(sorted_list, element):
+    found = False
+    for x in sorted_list:
+        if x == element:
+            found = True
+            
+    if found == True:
+        print('Element found.')
+    else:
+        print('Element not found')
+
+find = int(input('Enter the element you are looking for: '))
+arr = array('i', [10, 23, 36, 47, 59, 64, 71])
+find_element_nopy(arr,find)
+
 
 
 #find_element_py([10,23,36,37,47,59,64,71], 36) >>True
@@ -24,8 +56,45 @@ give  an O(n) algorithm to find k
 
 '''
 
+'''
 def shifted_array(sorted_list):
-    pass
+	    couldn't exactly figure out how to do this not knowing how
+    many elements the user could give you
+
+    #creating the array
+    A = []
+    length = input('What is the length of your array?')
+    #filling the array with elements from the user
+    for i in range(0,length):
+    	A[i] = input('Enter element ' + i)
+    #sorting the array
+    list.sort(A)
+    print('Sorted array:')
+    for j in A:
+    	print(j + ', ')
+    k = input('By how many elements would you like to shift the array?')
+    #shifting the elements
+    A.rotate(k)
+    #print result
+    print('Shifted array:')
+    for x in A:
+    	print(x + ', ')
+    '''
+from collections import deque
+
+def shifted_array(sorted_list):
+    #used https://docs.python.org/3/library/collections.html#deque-objects for reference
+    A = deque(sorted_list)
+    k = int(input('By how many elements would you like to shift the array?\n'))
+    #shifting the elements
+    A.rotate(k)
+    #print result
+    print('Shifted array: ')
+    for x in A:
+        print(x , end =' ')
+
+shifted_array([5,6,7,1,2,3,4])
+
 
 #shiftd_array([5,6,7,1,2,3,4]) >>3
 
@@ -61,11 +130,14 @@ Notice
 The Nth fibonacci number won't exceed the max value of signed 32-bit integer in the test cases.
 
 '''
-
-
 def fibonacci(n):
-    pass
+    fib = [0,1]
+    for x in range(2,(n+1)):
+        fib.append(fib[x-1] + fib[x-2])
+    return fib[n]
 
+n = int(input('In what position is the number you are looking for?\n'))
+print('Given', n, 'the fibonacci is' , fibonacci(n))
 
 '''
 
@@ -103,5 +175,25 @@ You may assume the given number is larger or equal to 100 but smaller than 1000.
 '''
 
 def reverseInteger(num):
-    pass
+    reverse = 0
+    while num>0:
+        reverse = (reverse*10) + (num%10)
+        num = int(num/10)
+    return reverse
+
+num = int(input('Enter the number you want to reverse: '))
+reverse = reverseInteger(num)
+print('The reversed number is:', reverse)
+
+
+
+
+
+
+
+
+
+
+
+
 
