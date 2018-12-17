@@ -25,6 +25,9 @@ is contained in the list, A.
 
 '''
 
+#TODO: make sure to not use global imports bc they are very dangerous and pollute your namespace
+
+
 def find_element_nopy(sorted_list, element):
     found = False
     for x in sorted_list:
